@@ -8,7 +8,8 @@ import adminRoutes from "./routes/admin.routes.js";
 import instructorRoutes from "./routes/instructor.routes.js";
 import studentRoutes from "./routes/student.routes.js";
 import { notFound, errorHandler } from "./middlewares/error.middleware.js";
-
+import path from "path";
+import { fileURLToPath } from "url";
 dotenv.config();
 
 const app = express();
@@ -26,7 +27,9 @@ app.use(
 );
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'lms-frontend', 'build')))
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, 'lms-frontend', 'build')));
 
 app.use("/uploads", express.static("uploads"));
 
