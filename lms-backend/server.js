@@ -32,7 +32,9 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'lms-frontend', 'build')));
 
 app.use("/uploads", express.static("uploads"));
-
+app.use("/",(req,res)=>{
+  res.send("Welcome to LMS Backend created by Naseer Ahmad Bhat")
+})
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
