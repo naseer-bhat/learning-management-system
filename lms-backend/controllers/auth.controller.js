@@ -6,6 +6,7 @@ import axios from 'axios'
 export const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
+   
 
     // Check if user already exists
     const existing = await User.findOne({ email });
@@ -18,17 +19,22 @@ export const register = async (req, res) => {
     const user = await User.create({ name, email, password: hashed, role });
 
     //  Send welcome email
+    try{
     await axios.post("https://microservices-kccr.onrender.com/api/sendmail", {
   to: user.email,
   subject: "You have Successfully Registered",
   template: "Welcome to LMS",
-  data: { username: user.name}
+  data: { name: user.name}
 }, {
   headers: {
     "api-key": process.env.EMAIL_API_KEY 
   }
 }
-);
+);}
+catch(emailErr){
+    console.warn("📧 Email sending failed:", emailErr.message);
+
+}
     res.status(201).json({ msg: "Registered successfully", user });
   } catch (err) {
     res.status(500).json({ msg: "Registration failed", error: err.message });
@@ -52,7 +58,7 @@ export const login = async (req, res) => {
       expiresIn: "7d",
     });
 
-    res.status(200).json({ msg: "Login successful", token });
+    res.status(200).json({ msg: "Login successful", token ,user});
   } catch (err) {
     res.status(500).json({ msg: "Login failed", error: err.message });
   }
