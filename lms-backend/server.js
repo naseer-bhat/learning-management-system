@@ -14,9 +14,8 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
 const allowedOrigins = [
-  "http://localhost:5173" // for production (optional)
+  "http://localhost:5173" 
 ];
 
 app.use(
