@@ -35,17 +35,12 @@ app.use("/uploads", express.static("uploads"));
 app.use("/",(req,res)=>{
   res.send("Welcome to LMS Backend created by Naseer Ahmad Bhat")
 })
-// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/instructor", instructorRoutes);
 app.use("/api/student", studentRoutes);
-
-// Error Handling
 app.use(notFound);
 app.use(errorHandler);
-
-// Start Server
 const PORT = process.env.PORT || 8000;
 connectToDB().then(() => {
   app.listen(PORT, () => {
