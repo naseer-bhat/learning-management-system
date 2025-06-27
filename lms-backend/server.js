@@ -29,12 +29,12 @@ app.use(morgan("dev"));
 app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, 'lms-frontend', 'build')));
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.use("/uploads", express.static("uploads"));
-app.use("/",(req,res)=>{
-  res.send("Welcome to LMS Backend created by Naseer Ahmad Bhat")
-})
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'welcome.html'))
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/instructor", instructorRoutes);

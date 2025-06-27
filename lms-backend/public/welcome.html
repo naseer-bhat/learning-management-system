@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to LearnHub Backend</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f7f8fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #3a3a3a;
+    }
+    .container {
+      max-width: 900px;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      line-height: 1.7;
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    .highlight {
+      background: #eef6ff;
+      border-left: 5px solid #007acc;
+      padding: 10px 20px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👋 Welcome to LearnHub Backend API</h1>
+    <p>This backend powers the <strong>LearnHub Learning Management System (LMS)</strong> – a platform designed to deliver modern, role-based online learning experiences.</p>
+    
+    <div class="section">
+      <h2>🔧 Technologies Used</h2>
+      <ul>
+        <li><strong>Node.js</strong> + <strong>Express</strong> – Backend server and routing</li>
+        <li><strong>MongoDB</strong> – NoSQL database for storing users, courses, and content</li>
+        <li><strong>JWT</strong> – Authentication</li>
+        <li><strong>Argon2</strong> – Secure password hashing</li>
+        <li><strong>Nodemailer</strong> – Email notifications</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🚀 Getting Started</h2>
+      <div class="highlight">
+        <code>cd backend && npm install && npm run dev</code>
+      </div>
+      <p>Make sure to configure the <code>.env</code> file with your database and email credentials.</p>
+    </div>
+
+    <div class="section">
+      <h2>🔐 API Routes Overview</h2>
+      <ul>
+        <li><strong>/api/auth</strong> – Register & Login</li>
+        <li><strong>/api/student</strong> – Browse courses, enroll, submit assignments</li>
+        <li><strong>/api/instructor</strong> – Create courses, add lessons, evaluate submissions</li>
+        <li><strong>/api/admin</strong> – Manage users and view dashboard</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📄 Author</h2>
+      <p><strong>Naseer Ahmad Bhat</strong><br/>Backend Developer – Node.js | MongoDB | Express</p>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 0.9em; color: gray;">&copy; 2025 LearnHub – Open Source under MIT License</p>
+  </div>
+</body>
+</html>
